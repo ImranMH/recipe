@@ -10,7 +10,7 @@
 									<div class="recipe-header listview">
 									  <h2><%= r.title %></h2>
 									  <div class="list_meta">
-											<div class="recipe_info">Cooking Time: <%= r.time %> Min</div>
+											<div class="recipe_info">Cooking Time:  <%= r.time>0?r.time+ ' Minute': "Unknown" %> </div>
 											<div class="recipe_info"> like By 4 User</div>
 											<div class="recipe_info"> tag: <%= r.ingredient %></div>
 										</div>

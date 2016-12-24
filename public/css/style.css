@@ -57,3 +57,15 @@ body{
 footer{
 	padding-top: 40px;
 }
+.action span{
+	border: 1px solid #a99d9d;
+	cursor:pointer;
+  padding: 8px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px #382c2c;
+}
+.glyphicon-remove{
+	background: #8BC34A;
+	color: red;
+}

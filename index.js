@@ -65,7 +65,6 @@ function indexFunc(req, res) {
       return console.error('error running query', err);
     }
     var data = result.rows
-    console.log(data);
     res.render('index', {recipe: data})
     
     done();
@@ -77,30 +76,45 @@ function indexFunc(req, res) {
 }
 app.get('/recipe/:id', findById)
 
+
 function findById(req, res) {
   var id = req.params.id;
    pool.connect(function(err, client, done) {
     if(err) {
     return console.error('error fetching client from pool', err);
-  }
-  var idQuery = "SELECT * FROM racipe WHERE id ="+ id;
-  client.query(idQuery,  function(err, result) {
-    //call `done()` to release the client back to the pool
-    if(err) {
-      return console.error('error running query', err);
     }
-    var data = result.rows[0]
-    console.log('result');
-    console.log(data);
-    res.render('single', {recipe : data})
+    var idQuery = "SELECT * FROM racipe WHERE id ="+ id;
+    client.query(idQuery,  function(err, result) {
+      //call `done()` to release the client back to the pool
+      if(err) {
+        return console.error('error running query', err);
+      }
+      var data = result.rows[0]
 
-    done();
-    //output: 1
+      res.render('single', {recipe : data})
+
+      done();
+      //output: 1
+    });
+
   });
-
-});
   
 }
+app.delete('/delete/:id', deleteRecipe)
+function deleteRecipe(req, res) {
+  console.log("here i am");
+  var id = req.params.id;
+   pool.connect(function(err, client, done) {
+    if(err) {
+    return console.error('error fetching client from pool', err);
+    }
+    var idQuery = "DELETE FROM racipe WHERE id = $1";
+    client.query(idQuery,  [id]);
+    res.status(200).json("successfully Deleted")
+  });
+  
+}
+
 app.post('/addNew', addNewRecipe)
 function addNewRecipe(req, res){
   pool.connect(function(err, client, done) {
@@ -108,6 +122,7 @@ function addNewRecipe(req, res){
       return console.error('error fetching client from pool', err);
     }
     var recipe = req.body
+    recipe.time = recipe.time || 0
     client.query('INSERT INTO racipe(title, ingredient, process, cooked_by, source,time) VALUES($1,$2,$3,$4,$5,$6) ', [
       recipe.title, recipe.ingredient, recipe.process, recipe.cooked_by , recipe.source,recipe.time,
     ]);

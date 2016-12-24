@@ -5,7 +5,7 @@
 	  <h2> <%= recipe.title %> kk </h2>
 	</div>
 	<div class="top_meta">
-		<div class="recipe_info">Cooking Time: <%= recipe.time?recipe.time+ ' Minute': "Unknown" %> </div>
+		<div class="recipe_info">Cooking Time: <%= recipe.time>0?recipe.time+ ' Minute': "Unknown" %> </div>
 		<div class="recipe_info"> like By 4 User</div>
 		<div class="recipe_info"> tag: beef, pottato</div>
 	</div>
@@ -25,6 +25,10 @@
 	<div class="meta">
 		<h4>cooked by : <%= recipe.cooked_by %> </h4>
 		<h4>Source :  <%= recipe.source %> </h4>
+	</div>
+	<div class="action">
+		<span id="<%= recipe.id %>" class="glyphicon glyphicon-remove remove"></span>
+		<span id="<%= recipe.id %>" class="glyphicon glyphicon-cog pcp_color"></span>
 	</div>
 <% } %>
 </div>
