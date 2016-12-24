@@ -1,0 +1,107 @@
+<div class="add_new">
+	<button class="btn pcp_color" data-toggle="modal" data-target="#formInputModal">Add New Recipe</button>
+</div>
+
+<div class="racipe">
+	<!-- <h2 class="">hochpoch with beef</h2> -->
+			<% if ( recipe ) { %>
+						
+							<% for( var r of recipe) { %>		
+									<div class="recipe-header listview">
+									  <h2><%= r.title %></h2>
+									  <div class="list_meta">
+											<div class="recipe_info">Cooking Time: <%= r.time %> Min</div>
+											<div class="recipe_info"> like By 4 User</div>
+											<div class="recipe_info"> tag: <%= r.ingredient %></div>
+										</div>
+										<div class="view_detail pcp_color">
+											 <a href="recipe/<%= r.id %>">View Recipe</a>
+										</div>
+									</div>	
+							<% } %>					
+					<% } %>					
+<!-- 	<div class="recipe-header listview">
+  <h2>Hochpoch with beef  <span></span></h2>
+  <div class="list_meta">
+		<div class="recipe_info">Cooking Time: 30 Min</div>
+		<div class="recipe_info"> like By 4 User</div>
+		<div class="recipe_info"> tag: beef, pottato</div>
+	</div>
+	<div class="view_detail pcp_color">
+		 View Recipe
+	</div>
+</div> -->
+	<!-- <div class="recipe-header listview">
+	  <h2>Hochpoch with beef  <span></span></h2>
+	  <div class="list_meta">
+			<div class="recipe_info">Cooking Time: 30 Min</div>
+			<div class="recipe_info"> like By 4 User</div>
+			<div class="recipe_info"> tag: beef, pottato</div>
+		</div>
+		<div class="view_detail pcp_color">
+			 View Recipe
+		</div>
+	</div>
+	<div class="recipe-header listview">
+	  <h2>Hochpoch with beef  <span></span></h2>
+	  <div class="list_meta">
+			<div class="recipe_info">Cooking Time: 30 Min</div>
+			<div class="recipe_info"> like By 4 User</div>
+			<div class="recipe_info"> tag: beef, pottato</div>
+		</div>
+		<div class="view_detail pcp_color">
+			 View Recipe
+		</div>
+	</div> -->
+</div>
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="formInputModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form method="post" action="addNew">
+      	<div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Add New Recipe</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+				    <label for="title">Recipe Title</label>
+				    <input type="text" class="form-control" name="title" id="title" placeholder="Racipe Title">
+				  </div>
+				  <div class="form-group">
+				    <label for="Ingredients">Ingredients</label>
+				    <textarea class="form-control" name="ingredient" rows="3"></textarea>
+				  </div>
+				   <div class="form-group">
+				    <label for="Ingredients">Process</label>
+				    <textarea class="form-control" name="process" rows="3"></textarea>
+				  </div>
+				   <div class="form-group">
+				    <label for="time">Cooking Time</label>
+				    <input type="number" name ="time" class="form-control" id=" time" placeholder="30 min">
+				  </div>
+				   <div class="form-group">
+				    <label for="cooked_by">cCooked By</label>
+				    <input type="text" name="cooked_by" class="form-control" id="cooked_by" placeholder="Anik Ahmed">
+				  </div>
+				  <div class="form-group">
+				    <label for="source">source</label>
+				    <input type="text" name="source" class="form-control" id="source" placeholder="Anik Ahmed">
+				  </div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="submit" class="btn btn-primary">Save changes</button>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
