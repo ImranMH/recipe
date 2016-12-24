@@ -114,9 +114,28 @@ function deleteRecipe(req, res) {
   });
   
 }
-
+app.post('/edit/:id', editRecipe)
+function editRecipe(req, res){
+  console.log('edit');
+  
+  pool.connect(function(err, client, done) {
+      if(err) {
+      return console.error('error fetching client from pool', err);
+    }
+    var recipe = req.body
+    recipe.time = recipe.time || 0
+   
+    var query ='UPDATE racipe SET title=$1, ingredient=$2, process=$3, cooked_by=$4, source=$5,time=$6 WHERE id= $7';
+    client.query(query, [
+      recipe.title, recipe.ingredient, recipe.process, recipe.cooked_by , recipe.source,recipe.time, req.params.id
+    ]);
+    done()
+    res.redirect('/recipe/'+req.params.id)
+  });
+}
 app.post('/addNew', addNewRecipe)
 function addNewRecipe(req, res){
+  console.log('add');
   pool.connect(function(err, client, done) {
       if(err) {
       return console.error('error fetching client from pool', err);

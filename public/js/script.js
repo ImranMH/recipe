@@ -15,4 +15,18 @@ $(function() {
 			})
 		}
 	})
+
+	// $('#formEditModal').on('submit', editRecipe)
+	// function editRecipe() {
+	// 	var data = {
+	// 		title : $('#title').val(),
+	// 		ingredient : $('#ingredient').val(),
+	// 		process : $('#process').val(),
+	// 		time : $('#time').val(),
+	// 		cooked_by : $('#cooked_by').val(),
+	// 		source : $('#source').val(),
+	// 	}
+	// 	console.log(data);
+
+	// }
 });
