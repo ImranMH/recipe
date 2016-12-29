@@ -2,17 +2,20 @@
 	<button class="btn pcp_color" data-toggle="modal" data-target="#formInputModal">Add New Recipe</button>
 </div>
 
-<div class="racipe">
+<div class="racipes">
 	<!-- <h2 class="">hochpoch with beef</h2> -->
 			<% if ( recipe ) { %>
 						
 							<% for( var r of recipe) { %>		
 									<div class="recipe-header listview">
-									  <h2><%= r.title %></h2>
+									  <h2><a href="recipe/<%= r.id %>"><%= r.title %></a></h2>
 									  <div class="list_meta">
 											<div class="recipe_info">Cooking Time:  <%= r.time>0?r.time+ ' Minute': "Unknown" %> </div>
 											<div class="recipe_info"> like By 4 User</div>
-											<div class="recipe_info"> tag: <%= r.ingredient %></div>
+											<div class="recipe_info"> tag: </div>
+										</div>
+										<div class="recipe_highlight">
+											<%= r.process %>
 										</div>
 										<div class="view_detail pcp_color">
 											 <a href="recipe/<%= r.id %>">View Recipe</a>
@@ -52,7 +55,7 @@
 				  </div>
 				   <div class="form-group">
 				    <label for="time">Cooking Time</label>
-				    <input type="number" name ="time" class="form-control" id=" time" placeholder="30 min">
+				    <input type="text" name ="time" class="form-control" id=" time" placeholder="30 min">
 				  </div>
 				   <div class="form-group">
 				    <label for="cooked_by">cCooked By</label>

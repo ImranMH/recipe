@@ -2,29 +2,29 @@
 	<!-- <h2 class="">hochpoch with beef</h2> -->
 <% if ( recipe ) { %>
 	<div class="recipe-header">
-	  <h2> <%= recipe.title %> kk </h2>
+	  <h2> <%= recipe.title %>  </h2>
 	</div>
-	<div class="top_meta">
+	<div class="list_meta">
 		<div class="recipe_info">Cooking Time: <%= recipe.time>0?recipe.time+ ' Minute': "Unknown" %> </div>
 		<div class="recipe_info"> like By 4 User</div>
 		<div class="recipe_info"> tag: beef, pottato</div>
 	</div>
-	উপকরণ:
-
+	
+	<span class="sub_heading">উপকরণ:</span>
 	<ul>
 		<li><%= recipe.ingredient %></li>
 		
 	</ul>
 
 	<div class="direction">
-		পদ্ধতি:
+		<span class="sub_heading">পদ্ধতি: </span>
 		<!-- Bring a large pot of lightly salted water to a boil. Add orzo pasta, cook for 8 to 10 minutes, until al dente, and drain.
 		Heat the oil in a skillet over medium-high heat, and cook the garlic and red pepper 1 minute, until garlic is golden brown. Stir in chicken, season with salt, and cook 2 to 5 minutes, until lightly browned and juices run clear. Reduce heat to medium, and mix in the parsley and cooked orzo. Place spinach in the skillet. Continue cooking 5 minutes, stirring occasionally, until spinach is wilted. Serve topped with Parmesan cheese. -->
 		<%= recipe.process %>
 	</div>
 	<div class="meta">
-		<h4>cooked by : <%= recipe.cooked_by %> </h4>
-		<h4>Source :  <%= recipe.source %> </h4>
+		<h4><span class="glyphicon glyphicon-user user-avater"></span> <span class="sub_heading">cooked by :</span> <%= recipe.cooked_by %> </h4>
+		<h4><span class="sub_heading">source:</span>  <%= recipe.source %> </h4>
 	</div>
 	<div class="action">
 		<span id="<%= recipe.id %>" class="glyphicon glyphicon-remove remove"></span>
@@ -56,7 +56,7 @@
 				  </div>
 				   <div class="form-group">
 				    <label for="time">Cooking Time</label>
-				    <input type="number" name ="time" class="form-control" id=" time" value= " <%= recipe.time %>">
+				    <input type="text" name ="time" class="form-control" id=" time" value= " <%= recipe.time %>">
 				  </div>
 				   <div class="form-group">
 				    <label for="cooked_by">cCooked By</label>
