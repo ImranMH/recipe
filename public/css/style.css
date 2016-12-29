@@ -5,7 +5,7 @@ body{
     text-align: center;
     border: 3px solid #f6f8f9;
     padding: 5px 15px;
-    width: 45%;
+    width: 40%;
     margin: 25px auto;
     background: #f57e05;
 }
@@ -138,7 +138,21 @@ span.sub_heading{
     font-weight: 600;
 }
 @media (max-width: 600px) {
-  .recipe_info{
-   width: 100%;
-  }
+
+  .site_title {	
+	width: 80%;
+	}
+}
+
+@media (max-width: 760px) {
+ 
+  .site_title a {	
+	font-size: 22px;
+	}
+}
+@media (max-width: 760px) {
+ 
+  .site_title a {	
+	font-size: 22px;
+	}
 }

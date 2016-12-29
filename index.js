@@ -70,7 +70,7 @@ function indexFunc(req, res) {
     done();
     //output: 1
   });
-  console.log('connected now');
+  
 });
 	
 }
